@@ -1,15 +1,15 @@
 /**
  * 
  */
-package com.dms.service.impl;
+package com.shapeup.service.impl;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.dms.persistence.dao.UserDao;
-import com.dms.service.UserService;
+import com.shapeup.persistence.dao.UserDao;
+import com.shapeup.service.UserService;
 
 /**
  * @author Jeyakaran

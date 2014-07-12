@@ -1,4 +1,4 @@
-package com.dms.service.impl;
+package com.shapeup.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +15,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.dms.persistence.dao.UserDao;
-import com.dms.persistence.entity.User;
-import com.dms.persistence.entity.UserRole;
-import com.dms.security.LoginUser;
+import com.shapeup.persistence.dao.UserDao;
+import com.shapeup.persistence.entity.User;
+import com.shapeup.persistence.entity.UserRole;
+import com.shapeup.security.LoginUser;
 
 @Service
 public class LoginServiceImpl implements UserDetailsService {

@@ -1,7 +1,7 @@
 /**;
  * 
  */
-package com.dms.persistence.model;
+package com.shapeup.persistence.model;
 
 /**
  * @author Jeyakaran

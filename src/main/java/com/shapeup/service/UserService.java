@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.dms.service;
+package com.shapeup.service;
 
 
 /**

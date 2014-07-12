@@ -1,14 +1,14 @@
 /**
  * 
  */
-package com.dms.persistence.model;
+package com.shapeup.persistence.model;
 
 import javax.persistence.Column;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.MappedSuperclass;
 
-import com.dms.common.util.UserRole;
+import com.shapeup.common.util.UserRole;
 
 /**
  * @author Jeyakaran

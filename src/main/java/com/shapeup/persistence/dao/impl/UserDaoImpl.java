@@ -1,16 +1,16 @@
 /**
  * 
  */
-package com.dms.persistence.dao.impl;
+package com.shapeup.persistence.dao.impl;
 
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 
 import org.springframework.stereotype.Repository;
 
-import com.dms.persistence.dao.AbstractJpaDAO;
-import com.dms.persistence.dao.UserDao;
-import com.dms.persistence.entity.User;
+import com.shapeup.persistence.dao.AbstractJpaDAO;
+import com.shapeup.persistence.dao.UserDao;
+import com.shapeup.persistence.entity.User;
 
 /**
  * @author Jeyakaran

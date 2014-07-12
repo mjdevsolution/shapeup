@@ -1,11 +1,11 @@
 /**
  * 
  */
-package com.dms.persistence.dao;
+package com.shapeup.persistence.dao;
 
 import java.util.List;
 
-import com.dms.persistence.entity.User;
+import com.shapeup.persistence.entity.User;
 
 /**
  * @author Jeyakaran

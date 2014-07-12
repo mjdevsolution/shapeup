@@ -3,12 +3,12 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.dms</groupId>
-	<artifactId>dealerMS</artifactId>
+	<groupId>com.shapeup</groupId>
+	<artifactId>shapeup</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
 
-	<name>Dealer Management System Maven Webapp</name>
+	<name>Shape Up Maven Webapp</name>
 
 	<url>http://maven.apache.org</url>
 
@@ -255,7 +255,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>dealerMS</finalName>
+		<finalName>shapeup</finalName>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>

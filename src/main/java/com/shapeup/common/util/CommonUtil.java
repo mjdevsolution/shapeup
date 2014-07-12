@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.dms.common.util;
+package com.shapeup.common.util;
 
 /**
  * @author Jeyakaran

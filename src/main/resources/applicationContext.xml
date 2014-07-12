@@ -9,13 +9,13 @@
 
 	<import resource="jpaConfig.xml" />
 
-	<context:component-scan base-package="com.dms.presentation" />
+	<context:component-scan base-package="com.shapeup.presentation" />
 
-	<bean id="userService" class="com.dms.service.impl.UserServiceImpl" />
+	<bean id="userService" class="com.shapeup.service.impl.UserServiceImpl" />
 	
-	<bean id="loginService" class="com.dms.service.impl.LoginServiceImpl" />
+	<bean id="loginService" class="com.shapeup.service.impl.LoginServiceImpl" />
 
-	<bean id="userDao" class="com.dms.persistence.dao.impl.UserDaoImpl" />
+	<bean id="userDao" class="com.shapeup.persistence.dao.impl.UserDaoImpl" />
 </beans>
 
 

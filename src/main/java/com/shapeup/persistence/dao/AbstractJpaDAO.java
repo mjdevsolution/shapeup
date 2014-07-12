@@ -1,11 +1,11 @@
-package com.dms.persistence.dao;
+package com.shapeup.persistence.dao;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import com.dms.persistence.model.BaseEntity;
+import com.shapeup.persistence.model.BaseEntity;
 
 public abstract class AbstractJpaDAO<T extends BaseEntity> {
 

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.dms.controller;
+package com.shapeup.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
