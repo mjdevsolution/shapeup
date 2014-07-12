@@ -7,7 +7,7 @@
 			class="icon-reorder tooltips"></div>
 	</div>
 	<!--logo start-->
-	<a href="#" class="logo"><span>Dealer Management System</span></a>
+	<a href="#" class="logo"><span>Shape Up Management System</span></a>
 	<!--logo end-->
 	<div class="nav notify-row" id="top_menu">
 		<!--  notification start -->
