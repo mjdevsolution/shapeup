@@ -6,3 +6,6 @@ mvn archetype:generate -DgroupId=com.shapeup -DartifactId=shapeup -DarchetypeArt
 mvn eclipse:eclipse -Dwtpversion=2.0 -DdownloadSources=true  -DdownloadJavadocs=true
 mvn clean
 mvn eclipse:clean
+
+Git windows GUI client
+https://windows.github.com/
