@@ -1,36 +1,38 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 <!--header start-->
-<header class="header white-bg">
 
-	<div class="sidebar-toggle-box">
-		<div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"></div>
-	</div>
+<div class="title">
 
-	<!--logo start-->
-	<a href="#" class="logo">
-		<span>Shape Up Management System</span>
-	</a>
-	<!--logo end-->
+	<a href="#">Shape Up</a>
 
-	<div class="top-nav ">
-		<ul class="nav pull-right top-menu">
-			<li><input type="text" class="form-control search" placeholder="Search"></li>
+</div>
 
-			<!-- user login dropdown start-->
-			<li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">
-					<img alt="" src="resources/img/avatar1_small.jpg"> <span class="username"><sec:authentication
-							property="principal.name" /></span> <b class="caret"></b>
-				</a>
-				<ul class="dropdown-menu extended logout">
-					<div class="log-arrow-up"></div>
-					<li><a href="login">
-							<i class="icon-key"></i> Log Out
-						</a></li>
-				</ul></li>
-			<!-- user login dropdown end -->
+<div id="menus" class="left">
 
-		</ul>
-	</div>
-</header>
+	<a href="#">Home</a>
+	<a href="#">About Me</a>
+	<a href="#">Contact Us</a>
+
+</div>
+
+<div class="login right">
+
+	<form action="<c:url value='j_spring_security_check'/>" method="POST">
+
+		<input type="text" name='j_username' placeholder="User ID" autofocus>
+		<input type="password" name='j_password' placeholder="Password">
+
+		<button class="btn btn-lg btn-login btn-block" type="submit">Sign in</button>
+
+	</form>
+
+</div>
+
+<div class="clear"></div>
+
 <!--header end-->
