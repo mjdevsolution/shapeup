@@ -1,38 +1,47 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<header class="header">
 
-<!--header start-->
+	<a href="home" class="logo">
+		<!-- Add the class icon to your logo image or logo icon to add the margining -->
+		Shape Up
+	</a>
 
-<div class="title">
+	<nav class="navbar navbar-static-top" role="navigation">
 
-	<a href="#">Shape Up</a>
+		<!-- Sidebar toggle button-->
+		<a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span
+				class="icon-bar"></span>
+		</a>
 
-</div>
+		<div class="navbar-right">
+			<ul class="nav navbar-nav">
 
-<div id="menus" class="left">
+				<!-- User Account: style can be found in dropdown.less -->
+				<li class="dropdown user user-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="glyphicon glyphicon-user"></i> <span><sec:authentication property="principal.name" /><i
+							class="caret"></i></span>
+					</a>
+					<ul class="dropdown-menu">
+						<!-- User image -->
+						<li class="user-header bg-light-blue"><img src="resources/img/avatar3.png" class="img-circle"
+							alt="User Image" />
+							<p>
+								<sec:authentication property="principal.name" />
+								- Web Developer <small>Member since Nov. 2014</small>
+							</p></li>
 
-	<a href="#">Home</a>
-	<a href="#">About Me</a>
-	<a href="#">Contact Us</a>
+						<!-- Menu Footer-->
+						<li class="user-footer">
+							<div class="pull-right">
+								<a href="login" class="btn btn-default btn-flat">Sign out</a>
+							</div>
+						</li>
 
-</div>
+					</ul></li>
+			</ul>
+		</div>
+	</nav>
 
-<div class="login right">
-
-	<form action="<c:url value='j_spring_security_check'/>" method="POST">
-
-		<input type="text" name='j_username' placeholder="User ID" autofocus>
-		<input type="password" name='j_password' placeholder="Password">
-
-		<button class="btn btn-lg btn-login btn-block" type="submit">Sign in</button>
-
-	</form>
-
-</div>
-
-<div class="clear"></div>
-
-<!--header end-->
+</header>

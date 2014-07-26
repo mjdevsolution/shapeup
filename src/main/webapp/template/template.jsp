@@ -2,39 +2,47 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
 
 <head>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="mjeyakaran">
-<meta name="keyword" content="shape up">
+<meta charset="UTF-8">
 
-<!-- CSS -->
-<link href="resources/css/style.css" rel="stylesheet">
+<title>Shape Up | Dashboard</title>
 
-<title>Shape Up</title>
+<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
-<!-- CSS -->
-<link href="resources/css/style.css" rel="stylesheet">
-<body>
+<!-- bootstrap 3.0.2 -->
+<link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<!-- font Awesome -->
+<link href="resources/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<!-- Ionicons -->
+<link href="resources/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+<!-- Theme style -->
+<link href="resources/css/AdminLTE.css" rel="stylesheet" type="text/css" />
 
-	<div id="header">
-		<tiles:insertAttribute name="header" />
-	</div>
+</head>
 
-	<div id="panelwrap">
+<body class="skin-blue">
+
+	<tiles:insertAttribute name="header" />
+
+	<div class="wrapper row-offcanvas row-offcanvas-left">
+		<tiles:insertAttribute name="menu" />
 		<tiles:insertAttribute name="body" />
 	</div>
 
-	<div id="footer">
-		<tiles:insertAttribute name="footer" />
-	</div>
+	<tiles:insertAttribute name="footer" />
 
-	<!--common script for all pages-->
-	<!-- <script src="resources/js/common-scripts.js"></script> -->
+	<!-- jQuery 2.0.2 -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
+	<!-- AdminLTE App -->
+	<script src="resources/js/AdminLTE/app.js" type="text/javascript"></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="resources/js/AdminLTE/demo.js" type="text/javascript"></script>
 
 </body>
+
 </html>

@@ -1,56 +1,70 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
 <!DOCTYPE html>
-<html lang="en">
+
+<html class="bg-black">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="Mosaddek">
-<meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-<link rel="shortcut icon" href="resources/img/favicon.html">
 
-<title>404</title>
+<meta charset="UTF-8">
 
-<!-- Bootstrap core CSS -->
-<link href="resources/css/bootstrap.min.css" rel="stylesheet">
-<link href="resources/css/bootstrap-reset.css" rel="stylesheet">
-<!--external css-->
-<link href="resources/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-<!-- Custom styles for this template -->
-<link href="resources/css/style.css" rel="stylesheet">
-<link href="resources/css/style-responsive.css" rel="stylesheet" />
+<title>AdminLTE | Log in</title>
 
-<!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
-<!--[if lt IE 9]>
-    <script src="resources/js/html5shiv.js"></script>
-    <script src="resources/js/respond.min.js"></script>
-    <![endif]-->
+<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+
+<!-- bootstrap 3.0.2 -->
+<link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<!-- font Awesome -->
+<link href="resources/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<!-- Theme style -->
+<link href="resources/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+
 </head>
 
-<body class="body-404">
+<div class="wrapper row-offcanvas row-offcanvas-left">
+	<!-- Right side column. Contains the navbar and content of the page -->
+	<aside class="right-side">
 
-	<div class="container">
+		<!-- Main content -->
+		<section class="content">
 
-		<section class="error-wrapper">
-			<!-- <i class="icon-404"></i> -->
-			<h1>401</h1>
+			<div class="error-page">
+				<h2 class="headline text-info">401</h2>
+				<div class="error-content">
+					<h3>
+						<i class="fa fa-warning text-yellow"></i> Unauthorized Access !!
+					</h3>
+					<p>
+						<c:if test="${not empty error}">
+							<div style="color: red">
+								Your fake login attempt was bursted, dare again !!<br /> Caused :
+								${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
+							</div>
+						</c:if>
 
-			<hr />
+						<a href="login">Login</a>
+					</p>
 
-			<h2>Unauthorized Access !!</h2>
-			<p class="page-404">
+				</div>
+				<!-- /.error-content -->
+			</div>
+			<!-- /.error-page -->
 
-				<c:if test="${not empty error}">
-					<div style="color: red">
-						Your fake login attempt was bursted, dare again !!<br /> Caused :
-						${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
-					</div>
-				</c:if>
-
-				<a href="login">Login</a>
-			</p>
 		</section>
+		<!-- /.content -->
+	</aside>
+	<!-- /.right-side -->
+</div>
+<!-- ./wrapper -->
 
-	</div>
+<!-- jQuery 2.0.2 -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
+
 </body>
 </html>
