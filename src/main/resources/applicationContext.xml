@@ -11,11 +11,14 @@
 
 	<context:component-scan base-package="com.shapeup.presentation" />
 
-	<bean id="userService" class="com.shapeup.service.impl.UserServiceImpl" />
-	
+	<bean id="userService" class="com.shapeup.service.impl.UserServiceImpl" />	
+	<bean id="customerService" class="com.shapeup.service.impl.CustomerServiceImpl" />	
 	<bean id="loginService" class="com.shapeup.service.impl.LoginServiceImpl" />
 
 	<bean id="userDao" class="com.shapeup.persistence.dao.impl.UserDaoImpl" />
+	<bean id="customerDao" class="com.shapeup.persistence.dao.impl.CustomerDaoImpl" />
+	
+	
 </beans>
 
 

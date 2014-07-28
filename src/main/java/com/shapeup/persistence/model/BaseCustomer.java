@@ -8,6 +8,8 @@ import java.util.Calendar;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * @author Jeyakaran
  * 
@@ -29,6 +31,9 @@ public abstract class BaseCustomer extends BaseEntity {
 
 	@Column(name = "NIC_NO")
 	private String nicNo;
+
+	@Column(name = "GENDER")
+	private char gender;
 
 	@Column(name = "EMAIL")
 	private String email;
@@ -112,6 +117,14 @@ public abstract class BaseCustomer extends BaseEntity {
 
 	public void setEmployer(String employer) {
 		this.employer = employer;
+	}
+
+	public char getGender() {
+		return gender;
+	}
+
+	public void setGender(char gender) {
+		this.gender = gender;
 	}
 
 }

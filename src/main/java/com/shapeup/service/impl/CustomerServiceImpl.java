@@ -3,6 +3,8 @@
  */
 package com.shapeup.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -31,6 +33,11 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public Customer update(final Customer customer) {
 		return this.customerDao.update(customer);
+	}
+
+	@Override
+	public List<Customer> getAllCustomers() {
+		return this.customerDao.findAll();
 	}
 
 }

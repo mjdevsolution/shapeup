@@ -20,6 +20,9 @@
 <link href="resources/css/ionicons.min.css" rel="stylesheet" type="text/css" />
 <!-- Theme style -->
 <link href="resources/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/datepicker/datepicker.css" rel="stylesheet" type="text/css" />
+<!-- DATA TABLES -->
+<link href="resources/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -42,6 +45,7 @@
 	<script src="resources/js/AdminLTE/app.js" type="text/javascript"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="resources/js/AdminLTE/demo.js" type="text/javascript"></script>
+	<script src="resources/js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
 
 </body>
 

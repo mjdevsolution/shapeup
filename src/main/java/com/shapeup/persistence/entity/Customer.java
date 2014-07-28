@@ -3,10 +3,13 @@
  */
 package com.shapeup.persistence.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -31,10 +34,8 @@ public class Customer extends BaseCustomer {
 
 	public static final String TABLE_NAME = "CUSTOMER";
 	public static final String TABLE_PK = EntityStandard.PK;
-	public static final String TABLE_SEQUENCE_NAME = EntityStandard.SEQUENCE_PREFIX
-			+ TABLE_NAME + EntityStandard.SEPERATOR + TABLE_PK;
-	public static final String TABLE_FK = TABLE_NAME + EntityStandard.SEPERATOR
-			+ TABLE_PK;
+	public static final String TABLE_SEQUENCE_NAME = EntityStandard.SEQUENCE_PREFIX + TABLE_NAME + EntityStandard.SEPERATOR + TABLE_PK;
+	public static final String TABLE_FK = TABLE_NAME + EntityStandard.SEPERATOR + TABLE_PK;
 
 	@Id
 	@Column(name = TABLE_PK)
@@ -43,8 +44,8 @@ public class Customer extends BaseCustomer {
 	private Long id;
 
 	@JoinColumn(name = Customer.TABLE_FK, referencedColumnName = Customer.TABLE_PK)
-	@OneToMany
-	private List<Address> addresses;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<Address> addresses = new ArrayList<Address>();
 
 	public Long getId() {
 		return id;

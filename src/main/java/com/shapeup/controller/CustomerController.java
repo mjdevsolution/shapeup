@@ -3,62 +3,86 @@
  */
 package com.shapeup.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
+import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.shapeup.common.util.AddressType;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.shapeup.common.util.CalendarStringConverter;
 import com.shapeup.common.util.FlowType;
-import com.shapeup.persistence.entity.Address;
+import com.shapeup.form.CustomerForm;
+import com.shapeup.form.CustomerJsonObject;
 import com.shapeup.persistence.entity.Customer;
+import com.shapeup.service.CustomerService;
 
 /**
  * Handles requests for the application blank page.
  */
 @Controller
-@RequestMapping(value = "/customer")
+// @RequestMapping(value = "/customer")
 public class CustomerController {
 
-	@RequestMapping(value = "/new", method = RequestMethod.GET)
-	public String createNew(ModelMap model) {
+	@Resource
+	private CustomerService customerService;
 
-		Customer customer = new Customer();
+	@RequestMapping(value = "/newCustomer", method = RequestMethod.GET)
+	public String createNew(@ModelAttribute("customerForm") CustomerForm customerForm, ModelMap model) {
 
-		Address personalAddress = new Address();
-		personalAddress.setType(AddressType.PERSONAL);
-
-		Address officeAddress = new Address();
-		personalAddress.setType(AddressType.OFFICE);
-
-		ArrayList<Address> addresses = new ArrayList<Address>();
-		addresses.add(personalAddress);
-		addresses.add(officeAddress);
-
-		customer.setAddresses(addresses);
-
-		model.put("customer", customer);
+		model.put("customerForm", customerForm);
 		model.put("flowType", FlowType.NEW);
 
-		return "customer/customerEdit";
+		return "/customer";
 	}
 
-	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String add(ModelMap model) {
-		model.addAttribute("error", "true");
-		return "login/denied";
+	@RequestMapping(value = "/addCustomer", method = RequestMethod.POST)
+	public String add(@ModelAttribute("customerForm") CustomerForm customerForm, ModelMap model) {
+		customerService.create(customerForm.getCustomer());
+		return "/home";
 	}
 
-	@RequestMapping(value = "/edit", method = RequestMethod.POST)
+	@RequestMapping(value = "/editCustomer", method = RequestMethod.POST)
 	public String edit(ModelMap model) {
 		return "login/logout";
 	}
 
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	@RequestMapping(value = "/removeCustomer", method = RequestMethod.GET)
 	public String delete(ModelMap model) {
 		return "login/logout";
+	}
+
+	@RequestMapping(value = "/customerDetails", method = RequestMethod.GET, produces = "application/json")
+	public @ResponseBody
+	String springPaginationDataTables() throws IOException {
+
+		List<Customer> allCustomers = customerService.getAllCustomers();
+
+		CustomerJsonObject personJsonObject = new CustomerJsonObject();
+		personJsonObject.setiTotalDisplayRecords(allCustomers.size());
+		personJsonObject.setiTotalRecords(allCustomers.size());
+		personJsonObject.setAaData(allCustomers);
+
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		String json2 = gson.toJson(personJsonObject);
+
+		return json2;
+	}
+
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		binder.registerCustomEditor(Calendar.class, new CalendarStringConverter());
 	}
 
 }
