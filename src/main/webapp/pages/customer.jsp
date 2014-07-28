@@ -23,8 +23,11 @@
 			<!-- Main content -->
 			<section class="content">
 
-				<form:form id="form" action="${addCustomerUrl}" method="post" commandName="customerForm" modelAttribute="customerForm"
+				<form:form id="form" action="${addCustomerUrl}" method="post" modelAttribute="customerForm"
 					cssClass="form-horizontal" role="form">
+
+					<%-- <form:hidden path="customer" /> --%>
+					<form:hidden path="customer.id" />
 
 					<div class="row">
 						<div class="col-md-12">

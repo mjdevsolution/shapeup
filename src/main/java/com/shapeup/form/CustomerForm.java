@@ -3,8 +3,11 @@
  */
 package com.shapeup.form;
 
+import java.io.Serializable;
+
 import com.shapeup.common.util.AddressType;
 import com.shapeup.common.util.CommonUtil;
+import com.shapeup.common.util.FlowType;
 import com.shapeup.persistence.entity.Address;
 import com.shapeup.persistence.entity.Customer;
 
@@ -12,7 +15,11 @@ import com.shapeup.persistence.entity.Customer;
  * @author Jeyakaran
  * 
  */
-public class CustomerForm {
+public class CustomerForm implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	private FlowType flowType;
 
 	private Customer customer;
 	private Address personalAddress;
@@ -20,23 +27,9 @@ public class CustomerForm {
 
 	public CustomerForm() {
 
-		this.customer = new Customer();
-
-		Address personalAddress = new Address();
-		personalAddress.setType(AddressType.PERSONAL);
-
-		Address officeAddress = new Address();
-		officeAddress.setType(AddressType.OFFICE);
-
-		this.customer.getAddresses().add(personalAddress);
-		this.customer.getAddresses().add(officeAddress);
-
-		this.personalAddress = personalAddress;
-		this.officeAddress = officeAddress;
-
 	}
 
-	public CustomerForm(final Customer customer) {
+	public void init(final Customer customer) {
 		this.customer = customer;
 
 		if (!CommonUtil.isNullOrEmpty(this.customer.getAddresses())) {
@@ -50,8 +43,27 @@ public class CustomerForm {
 		}
 	}
 
+	public void clear() {
+		this.flowType = null;
+		this.customer = null;
+		this.personalAddress = null;
+		this.officeAddress = null;
+	}
+
+	public FlowType getFlowType() {
+		return flowType;
+	}
+
+	public void setFlowType(FlowType flowType) {
+		this.flowType = flowType;
+	}
+
 	public Customer getCustomer() {
 		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
 	public Address getPersonalAddress() {
@@ -64,6 +76,10 @@ public class CustomerForm {
 
 	public Address getOfficeAddress() {
 		return officeAddress;
+	}
+
+	public void setOfficeAddress(Address officeAddress) {
+		this.officeAddress = officeAddress;
 	}
 
 }
