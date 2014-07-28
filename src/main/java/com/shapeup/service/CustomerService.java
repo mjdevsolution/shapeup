@@ -20,4 +20,6 @@ public interface CustomerService {
 
 	public abstract List<Customer> getAllCustomers();
 
+	public abstract Customer getCustomerById(final Long customerId);
+
 }

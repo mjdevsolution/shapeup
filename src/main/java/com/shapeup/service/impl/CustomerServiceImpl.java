@@ -40,4 +40,9 @@ public class CustomerServiceImpl implements CustomerService {
 		return this.customerDao.findAll();
 	}
 
+	@Override
+	public Customer getCustomerById(final Long customerId) {
+		return this.customerDao.findById(customerId);
+	}
+
 }

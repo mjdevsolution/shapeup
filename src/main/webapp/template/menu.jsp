@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <c:url value="/newCustomer" var="newCustomerUrl" />
-<c:url value="/home" var="homeUrl" />
+<c:url value="/customers" var="customersUrl" />
 
 <aside class="left-side sidebar-offcanvas">
 
@@ -24,7 +24,7 @@
 
 		<ul class="sidebar-menu">
 
-			<li class="treeview"><a href="${homeUrl} }">
+			<li class="treeview"><a href="${customersUrl} }">
 					<i class="fa fa-bar-chart-o"></i> <span>Customer</span> <i class="fa fa-angle-left pull-right"></i>
 				</a>
 				<ul class="treeview-menu">

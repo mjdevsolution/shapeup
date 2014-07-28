@@ -4,7 +4,6 @@
 package com.shapeup.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
@@ -24,7 +24,7 @@ import com.google.gson.GsonBuilder;
 import com.shapeup.common.util.CalendarStringConverter;
 import com.shapeup.common.util.FlowType;
 import com.shapeup.form.CustomerForm;
-import com.shapeup.form.CustomerJsonObject;
+import com.shapeup.form.CustomerJson;
 import com.shapeup.persistence.entity.Customer;
 import com.shapeup.service.CustomerService;
 
@@ -50,17 +50,28 @@ public class CustomerController {
 	@RequestMapping(value = "/addCustomer", method = RequestMethod.POST)
 	public String add(@ModelAttribute("customerForm") CustomerForm customerForm, ModelMap model) {
 		customerService.create(customerForm.getCustomer());
-		return "/home";
+		return "/customerDetails";
 	}
 
-	@RequestMapping(value = "/editCustomer", method = RequestMethod.POST)
-	public String edit(ModelMap model) {
-		return "login/logout";
+	@RequestMapping(value = "/editCustomer", method = RequestMethod.GET)
+	public String edit(@RequestParam(value = "customerId", required = true) Long customerId, ModelMap model) {
+		Customer customer = customerService.getCustomerById(customerId);
+		CustomerForm customerForm = new CustomerForm(customer);
+
+		model.put("customerForm", customerForm);
+		model.put("flowType", FlowType.EDIT);
+
+		return "/customer";
 	}
 
 	@RequestMapping(value = "/removeCustomer", method = RequestMethod.GET)
 	public String delete(ModelMap model) {
 		return "login/logout";
+	}
+
+	@RequestMapping(value = "/customers", method = RequestMethod.GET)
+	public String customers() throws IOException {
+		return "/customerDetails";
 	}
 
 	@RequestMapping(value = "/customerDetails", method = RequestMethod.GET, produces = "application/json")
@@ -69,7 +80,7 @@ public class CustomerController {
 
 		List<Customer> allCustomers = customerService.getAllCustomers();
 
-		CustomerJsonObject personJsonObject = new CustomerJsonObject();
+		CustomerJson personJsonObject = new CustomerJson();
 		personJsonObject.setiTotalDisplayRecords(allCustomers.size());
 		personJsonObject.setiTotalRecords(allCustomers.size());
 		personJsonObject.setAaData(allCustomers);

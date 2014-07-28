@@ -11,16 +11,12 @@ import com.shapeup.persistence.entity.Customer;
  * @author Jeyakaran
  * 
  */
-public class CustomerJsonObject {
+public class CustomerJson {
 
 	int iTotalRecords;
-
 	int iTotalDisplayRecords;
-
 	String sEcho;
-
 	String sColumns;
-
 	List<Customer> aaData;
 
 	public int getiTotalRecords() {

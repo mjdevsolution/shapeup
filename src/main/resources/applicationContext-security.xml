@@ -15,7 +15,7 @@ http://www.springframework.org/schema/security/spring-security.xsd">
 		<intercept-url pattern="/user" access="hasRole('ADMIN')" />
 		<intercept-url pattern="/**" access="hasAnyRole('ADMIN','USER')" />
 
-		<form-login login-page="/login" default-target-url="/home"
+		<form-login login-page="/login" default-target-url="/customers"
 			authentication-failure-url="/accessdenied" />
 		<logout logout-success-url="/logout" />
 

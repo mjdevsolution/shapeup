@@ -8,15 +8,12 @@
 		<aside class="right-side">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
-				<h1>
-					Blank page <small>it all starts here</small>
-				</h1>
+				<h1>Customer Details</h1>
 				<ol class="breadcrumb">
 					<li><a href="#">
 							<i class="fa fa-dashboard"></i> Home
 						</a></li>
-					<li><a href="#">Examples</a></li>
-					<li class="active">Blank page</li>
+					<li class="active">Customer</li>
 				</ol>
 			</section>
 
@@ -30,16 +27,18 @@
 
 							<div class="box">
 								<div class="box-header">
-									<h3 class="box-title">Data Table With Full Features</h3>
+									<h3 class="box-title">Registered Customers</h3>
 								</div>
 								<!-- /.box-header -->
 								<div class="box-body table-responsive">
 									<table id="example1" class="table table-bordered table-hover">
 										<thead>
 											<tr>
+												<th>ID</th>
 												<th>First Name</th>
 												<th>Middle Name</th>
 												<th>Last Name</th>
+												<th></th>
 											</tr>
 										</thead>
 
@@ -66,19 +65,35 @@
 <script type="text/javascript">
 	$(function() {
 
-		$("#example1").dataTable({
-			"bProcessing" : false,
-			"bServerSide" : false,
-			"sort" : "position",
-			"sAjaxSource" : "customerDetails",
-			"aoColumns" : [ {
-				"mData" : "firstName"
-			}, {
-				"mData" : "middleName"
-			}, {
-				"mData" : "lastName"
-			}, ]
-		});
+		$("#example1")
+				.dataTable(
+						{
+							"bProcessing" : false,
+							"bServerSide" : false,
+							"sort" : "position",
+							"sAjaxSource" : "customerDetails",
+							"aoColumns" : [
+									{
+										"mData" : "id"
+									},
+									{
+										"mData" : "firstName"
+									},
+									{
+										"mData" : "middleName"
+									},
+									{
+										"mData" : "lastName"
+									},
+									{
+										"mData" : null,
+										"sClass" : "center",
+										"fnRender" : function(oObj) {
+											return '<a href=\"editCustomer?customerId=' + 
+			                                oObj.aData.id + '\">Edit</a>';
+										}
+									} ]
+						});
 
 	});
 </script>
