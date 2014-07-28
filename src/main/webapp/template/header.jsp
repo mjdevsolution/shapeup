@@ -1,8 +1,11 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<c:url value="/customers" var="customersUrl" />
 
 <header class="header">
 
-	<a href="home" class="logo">
+	<a href="${customersUrl}" class="logo">
 		<!-- Add the class icon to your logo image or logo icon to add the margining -->
 		Shape Up
 	</a>

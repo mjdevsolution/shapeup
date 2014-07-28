@@ -24,7 +24,7 @@
 
 		<ul class="sidebar-menu">
 
-			<li class="treeview"><a href="${customersUrl} }">
+			<li class="treeview"><a href="${customersUrl}">
 					<i class="fa fa-bar-chart-o"></i> <span>Customer</span> <i class="fa fa-angle-left pull-right"></i>
 				</a>
 				<ul class="treeview-menu">
