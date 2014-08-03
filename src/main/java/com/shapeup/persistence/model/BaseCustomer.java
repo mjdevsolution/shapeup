@@ -8,8 +8,6 @@ import java.util.Calendar;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 /**
  * @author Jeyakaran
  * 
@@ -46,6 +44,9 @@ public abstract class BaseCustomer extends BaseEntity {
 
 	@Column(name = "EMPLOYER")
 	private String employer;
+
+	@Column(name = "IMAGE_FILE_NAME")
+	private String imageFileName;
 
 	public String getFirstName() {
 		return firstName;
@@ -125,6 +126,14 @@ public abstract class BaseCustomer extends BaseEntity {
 
 	public void setGender(char gender) {
 		this.gender = gender;
+	}
+
+	public String getImageFileName() {
+		return imageFileName;
+	}
+
+	public void setImageFileName(String imageFileName) {
+		this.imageFileName = imageFileName;
 	}
 
 }

@@ -39,6 +39,11 @@
 
 	<!-- jQuery 2.0.2 -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+
+	<script src="resources/js/vendor/jquery.ui.widget.js"></script>
+	<script src="resources/js/jquery.iframe-transport.js"></script>
+	<script src="resources/js/jquery.fileupload.js"></script>
+
 	<!-- Bootstrap -->
 	<script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
 	<!-- AdminLTE App -->

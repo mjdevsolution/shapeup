@@ -24,6 +24,7 @@ public class CustomerForm implements Serializable {
 	private Customer customer;
 	private Address personalAddress;
 	private Address officeAddress;
+	private String image;
 
 	public CustomerForm() {
 
@@ -80,6 +81,14 @@ public class CustomerForm implements Serializable {
 
 	public void setOfficeAddress(Address officeAddress) {
 		this.officeAddress = officeAddress;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 }

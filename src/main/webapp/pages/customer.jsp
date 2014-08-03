@@ -125,7 +125,7 @@
 												<div class="form-group">
 													<label for="faxId" class="col-lg-4 col-sm-4 control-label">Fax</label>
 													<div class="col-lg-8">
-														<input type="text" class="form-control" id="faxId" placeholder="Fax">
+														<form:input path="image" cssClass="form-control" id="faxId" placeholder="Fax" />
 													</div>
 												</div>
 												<div class="form-group">
@@ -141,7 +141,12 @@
 
 									<div class="col-md-4">
 										<div class="form-horizontal">
-											<div class="box-body">Image</div>
+											<div class="box-body">
+
+												<img id="profile_picture" src="${customerForm.image}" />
+												<input id="profile_picture_upload" type="file" name="profile_picture">
+
+											</div>
 										</div>
 									</div>
 
@@ -257,6 +262,7 @@
 						</div>
 					</div>
 				</form:form>
+
 			</section>
 			<!-- /.content -->
 		</aside>
@@ -264,16 +270,29 @@
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>
+
+
 <script type="text/javascript">
-<!--
 	$(function() {
 		$('.default-date-picker').datepicker({
 			format : 'dd-mm-yyyy'
 		});
 
+		$('#profile_picture_upload').fileupload({
+			dataType : 'json',
+			url : '/shapeup/upload',
+			
+			done : function(e, data) {
+				$('#profile_picture').attr('src', data.result.fileName);
+			},
+			
+			fail: function (e, data) {
+				$('#profile_picture').attr('src', 'resources/imageuploads/default_profile_picture.png');
+	          }
+		});
 	});
-//-->
 </script>
+
 
 
 
