@@ -17,12 +17,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Validator;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -65,10 +69,15 @@ public class CustomerController {
 	@Autowired
 	private ServletContext context;
 
+	@Autowired
+	@Qualifier("customerFormValidator")
+	private Validator validator;
+
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		binder.registerCustomEditor(Calendar.class, new CalendarStringConverter());
 		binder.registerCustomEditor(byte[].class, new ByteArrayMultipartFileEditor());
+		binder.setValidator(validator);
 	}
 
 	@ModelAttribute("customerForm")
@@ -102,8 +111,12 @@ public class CustomerController {
 	}
 
 	@RequestMapping(value = "/addCustomer", method = RequestMethod.POST)
-	public String add(@ModelAttribute("customerForm") CustomerForm customerForm, ModelMap model, HttpSession session) {
+	public String add(@ModelAttribute("customerForm")  @Validated CustomerForm customerForm,BindingResult bindingResult, ModelMap model, HttpSession session) {
 
+		if (bindingResult.hasErrors()) {
+            return "/customer";
+        }
+		
 		if (FlowType.NEW.equals(customerForm.getFlowType())) {
 			customerService.create(customerForm.getCustomer());
 		} else if (FlowType.EDIT.equals(customerForm.getFlowType())) {

@@ -42,12 +42,15 @@
 										<div class="form-horizontal">
 											<div class="box-body">
 
-												<div class="form-group">
-													<label for="firstNameId" class="col-lg-4 col-sm-4 control-label">First Name</label>
-													<div class="col-lg-8">
-														<form:input path="customer.firstName" cssClass="form-control" id="firstNameId" placeholder="First Name" />
+												<spring:bind path="customer.firstName">
+													<div class="form-group ${status.error ? 'has-error' : ''}">
+														<label for="firstNameId" class="col-lg-4 col-sm-4 control-label">First Name</label>
+														<div class="col-lg-8">
+															<form:input path="customer.firstName" cssClass="form-control" id="firstNameId" placeholder="First Name" />
+															<form:errors path="customer.firstName" cssStyle="color: #ff0000;" />
+														</div>
 													</div>
-												</div>
+												</spring:bind>
 
 												<div class="form-group">
 													<label for="middleNameId" class="col-lg-4 col-sm-4 control-label">Middle Name</label>
@@ -56,19 +59,25 @@
 													</div>
 												</div>
 
-												<div class="form-group">
-													<label for="lastNameId" class="col-lg-4 col-sm-4 control-label">Last Name</label>
-													<div class="col-lg-8">
-														<form:input path="customer.lastName" cssClass="form-control" id="lastNameId" placeholder="Last Name" />
+												<spring:bind path="customer.lastName">
+													<div class="form-group ${status.error ? 'has-error' : ''}">
+														<label for="lastNameId" class="col-lg-4 col-sm-4 control-label">Last Name</label>
+														<div class="col-lg-8">
+															<form:input path="customer.lastName" cssClass="form-control" id="lastNameId" placeholder="Last Name" />
+															<form:errors path="customer.lastName" cssStyle="color: #ff0000;" />
+														</div>
 													</div>
-												</div>
+												</spring:bind>
 
-												<div class="form-group">
-													<label for="nicNoId" class="col-lg-4 col-sm-4 control-label">NIC No.</label>
-													<div class="col-lg-8">
-														<form:input path="customer.nicNo" cssClass="form-control" id="nicNoId" placeholder="NIC No." />
+												<spring:bind path="customer.nicNo">
+													<div class="form-group ${status.error ? 'has-error' : ''}">
+														<label for="nicNoId" class="col-lg-4 col-sm-4 control-label">NIC No.</label>
+														<div class="col-lg-8">
+															<form:input path="customer.nicNo" cssClass="form-control" id="nicNoId" placeholder="NIC No." />
+															<form:errors path="customer.nicNo" cssStyle="color: #ff0000;" />
+														</div>
 													</div>
-												</div>
+												</spring:bind>
 
 												<div class="form-group">
 													<label for="dateOfBirthId" class="col-lg-4 col-sm-4 control-label">Date of Birth</label>
@@ -125,7 +134,7 @@
 												<div class="form-group">
 													<label for="faxId" class="col-lg-4 col-sm-4 control-label">Fax</label>
 													<div class="col-lg-8">
-														<form:input path="image" cssClass="form-control" id="faxId" placeholder="Fax" />
+														<form:input path="" cssClass="form-control" id="faxId" placeholder="Fax" />
 													</div>
 												</div>
 												<div class="form-group">
@@ -278,18 +287,23 @@
 			format : 'dd-mm-yyyy'
 		});
 
-		$('#profile_picture_upload').fileupload({
-			dataType : 'json',
-			url : '/shapeup/upload',
-			
-			done : function(e, data) {
-				$('#profile_picture').attr('src', data.result.fileName);
-			},
-			
-			fail: function (e, data) {
-				$('#profile_picture').attr('src', 'resources/imageuploads/default_profile_picture.png');
-	          }
-		});
+		$('#profile_picture_upload')
+				.fileupload(
+						{
+							dataType : 'json',
+							url : '/shapeup/upload',
+
+							done : function(e, data) {
+								$('#profile_picture').attr('src',
+										data.result.fileName);
+							},
+
+							fail : function(e, data) {
+								$('#profile_picture')
+										.attr('src',
+												'resources/imageuploads/default_profile_picture.png');
+							}
+						});
 	});
 </script>
 
