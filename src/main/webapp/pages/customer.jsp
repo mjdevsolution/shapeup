@@ -1,7 +1,8 @@
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="html" tagdir="/WEB-INF/tags/html"%>
 
 <c:url value="/addCustomer" var="addCustomerUrl" />
 
@@ -42,42 +43,11 @@
 										<div class="form-horizontal">
 											<div class="box-body">
 
-												<spring:bind path="customer.firstName">
-													<div class="form-group ${status.error ? 'has-error' : ''}">
-														<label for="firstNameId" class="col-lg-4 col-sm-4 control-label">First Name</label>
-														<div class="col-lg-8">
-															<form:input path="customer.firstName" cssClass="form-control" id="firstNameId" placeholder="First Name" />
-															<form:errors path="customer.firstName" cssStyle="color: #ff0000;" />
-														</div>
-													</div>
-												</spring:bind>
+												<html:inputField name="customer.firstName" label="First Name" forId="firstNameId" placeholder="First Name" />
+												<html:inputField name="customer.middleName" label="Middle Name" forId="middleNameId" placeholder="Middle Name" />
+												<html:inputField name="customer.lastName" label="Last Name" forId="lastNameId" placeholder="Last Name" />
+												<html:inputField name="customer.nicNo" label="NIC No." forId="nicNoId" placeholder="NIC No." />
 
-												<div class="form-group">
-													<label for="middleNameId" class="col-lg-4 col-sm-4 control-label">Middle Name</label>
-													<div class="col-lg-8">
-														<form:input path="customer.middleName" cssClass="form-control" id="middleNameId" placeholder="Middle Name" />
-													</div>
-												</div>
-
-												<spring:bind path="customer.lastName">
-													<div class="form-group ${status.error ? 'has-error' : ''}">
-														<label for="lastNameId" class="col-lg-4 col-sm-4 control-label">Last Name</label>
-														<div class="col-lg-8">
-															<form:input path="customer.lastName" cssClass="form-control" id="lastNameId" placeholder="Last Name" />
-															<form:errors path="customer.lastName" cssStyle="color: #ff0000;" />
-														</div>
-													</div>
-												</spring:bind>
-
-												<spring:bind path="customer.nicNo">
-													<div class="form-group ${status.error ? 'has-error' : ''}">
-														<label for="nicNoId" class="col-lg-4 col-sm-4 control-label">NIC No.</label>
-														<div class="col-lg-8">
-															<form:input path="customer.nicNo" cssClass="form-control" id="nicNoId" placeholder="NIC No." />
-															<form:errors path="customer.nicNo" cssStyle="color: #ff0000;" />
-														</div>
-													</div>
-												</spring:bind>
 
 												<div class="form-group">
 													<label for="dateOfBirthId" class="col-lg-4 col-sm-4 control-label">Date of Birth</label>

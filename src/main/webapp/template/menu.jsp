@@ -3,6 +3,7 @@
 
 <c:url value="/newCustomer" var="newCustomerUrl" />
 <c:url value="/customers" var="customersUrl" />
+<c:url value="/loadAttendance" var="loadAttendanceUrl" />
 
 <aside class="left-side sidebar-offcanvas">
 
@@ -30,6 +31,9 @@
 				<ul class="treeview-menu">
 					<li><a href="${newCustomerUrl}">
 							<i class="fa fa-angle-double-right"></i> Registration
+						</a></li>
+					<li><a href="${loadAttendanceUrl}">
+							<i class="fa fa-angle-double-right"></i> Attendance
 						</a></li>
 				</ul></li>
 

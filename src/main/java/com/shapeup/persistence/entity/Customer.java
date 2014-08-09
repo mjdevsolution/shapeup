@@ -47,6 +47,10 @@ public class Customer extends BaseCustomer {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Address> addresses = new ArrayList<Address>();
 
+	@JoinColumn(name = Customer.TABLE_FK, referencedColumnName = Customer.TABLE_PK)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<Attendance> attendances = new ArrayList<Attendance>();
+
 	public Long getId() {
 		return id;
 	}
@@ -61,6 +65,14 @@ public class Customer extends BaseCustomer {
 
 	public void setAddresses(List<Address> addresses) {
 		this.addresses = addresses;
+	}
+
+	public List<Attendance> getAttendances() {
+		return attendances;
+	}
+
+	public void setAttendances(List<Attendance> attendances) {
+		this.attendances = attendances;
 	}
 
 }
