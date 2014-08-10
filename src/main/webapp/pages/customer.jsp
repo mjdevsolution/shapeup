@@ -44,7 +44,8 @@
 											<div class="box-body">
 
 												<html:inputField name="customer.firstName" label="First Name" forId="firstNameId" placeholder="First Name" />
-												<html:inputField name="customer.middleName" label="Middle Name" forId="middleNameId" placeholder="Middle Name" />
+												<html:inputField name="customer.middleName" label="Middle Name" forId="middleNameId"
+													placeholder="Middle Name" />
 												<html:inputField name="customer.lastName" label="Last Name" forId="lastNameId" placeholder="Last Name" />
 												<html:inputField name="customer.nicNo" label="NIC No." forId="nicNoId" placeholder="NIC No." />
 
@@ -81,6 +82,7 @@
 															placeholder="Address Line 1" />
 													</div>
 												</div>
+
 												<div class="form-group">
 													<label for="addressLineTwoId" class="col-lg-4 col-sm-4 control-label"></label>
 													<div class="col-lg-8">
@@ -88,12 +90,14 @@
 															placeholder="Address Line 2" />
 													</div>
 												</div>
+
 												<div class="form-group">
 													<label for="cityId" class="col-lg-4 col-sm-4 control-label">City</label>
 													<div class="col-lg-8">
 														<form:input path="personalAddress.city" cssClass="form-control" id="cityId" placeholder="City" />
 													</div>
 												</div>
+
 												<div class="form-group">
 													<label for="mobileNoId" class="col-lg-4 col-sm-4 control-label">Mobile No.</label>
 													<div class="col-lg-8">
@@ -101,16 +105,18 @@
 															placeholder="Mobile No." />
 													</div>
 												</div>
+
 												<div class="form-group">
 													<label for="faxId" class="col-lg-4 col-sm-4 control-label">Fax</label>
 													<div class="col-lg-8">
-														<form:input path="" cssClass="form-control" id="faxId" placeholder="Fax" />
+														<form:input path="personalAddress.fax" cssClass="form-control" id="faxId" placeholder="Fax" />
 													</div>
 												</div>
+
 												<div class="form-group">
 													<label for="emailId" class="col-lg-4 col-sm-4 control-label">Email</label>
 													<div class="col-lg-8">
-														<input type="text" class="form-control" id="emailId" placeholder="Email">
+														<form:input path="personalAddress.email" cssClass="form-control" id="emailId" placeholder="Personal Email" />
 													</div>
 												</div>
 
@@ -188,13 +194,15 @@
 												<div class="form-group">
 													<label for="startDateId" class="col-lg-4 col-sm-4 control-label">Start Date</label>
 													<div class="col-lg-8">
-														<input type="date" class="form-control" id="startDateId" placeholder="Start Date">
+														<form:input path="" size="16" placeholder="DD-MM-YYYY" cssClass="form-control default-date-picker"
+															id="startDateId" />
 													</div>
 												</div>
 												<div class="form-group">
 													<label for="expireDateId" class="col-lg-4 col-sm-4 control-label">Expire Date</label>
 													<div class="col-lg-8">
-														<input type="date" class="form-control" id="expireDateId" placeholder="Expire Date">
+														<form:input path="" size="16" placeholder="DD-MM-YYYY" cssClass="form-control default-date-picker"
+															id="expireDateId" />
 													</div>
 												</div>
 												<div class="form-group">

@@ -33,6 +33,12 @@ public abstract class BaseAddress extends BaseEntity {
 	@Column(name = "PHONE_NO")
 	private String phoneNo;
 
+	@Column(name = "FAX_NO")
+	private String fax;
+
+	@Column(name = "EMAIL")
+	private String email;
+
 	public AddressType getType() {
 		return type;
 	}
@@ -71,6 +77,22 @@ public abstract class BaseAddress extends BaseEntity {
 
 	public void setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
+	}
+
+	public String getFax() {
+		return fax;
+	}
+
+	public void setFax(String fax) {
+		this.fax = fax;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }
